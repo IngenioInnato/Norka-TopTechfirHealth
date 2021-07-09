@@ -70,25 +70,25 @@ function dataToSheet(form, url){
   });
 }
 
-// phone.forEach(el=> {
-//   let iti = window.intlTelInput(el, {
-//     preferredCountries: ['pr'],
-//     utilsScript: './node_modules/intl-tel-input/build/js/utils.js',
-//     initialCountry: "auto",
-//     geoIpLookup: function(success, failure) {
-//       $.get("https://ipinfo.io/json", function() {}, "jsonp").always(function(resp) {
-//         console.log(resp)
-//         let countryCode = (resp && resp.country) ? resp.country : "pr";
-//         success(countryCode);
-//       });
-//     },
-//     customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
-//       selectedCountryPlaceholder = "+" + selectedCountryData.dialCode + "" +  selectedCountryPlaceholder.replace('/ |-|(|)/g', '');
-//       return selectedCountryPlaceholder;
-//     },    
-//   });
-//   strictValidation(el);
-// });
+phone.forEach(el=> {
+  let iti = window.intlTelInput(el, {
+    preferredCountries: ['pr'],
+    utilsScript: './node_modules/intl-tel-input/build/js/utils.js',
+    initialCountry: "auto",
+    geoIpLookup: function(success, failure) {
+      $.get("https://ipinfo.io/json", function() {}, "jsonp").always(function(resp) {
+        console.log(resp)
+        let countryCode = (resp && resp.country) ? resp.country : "pr";
+        success(countryCode);
+      });
+    },
+    customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+      selectedCountryPlaceholder = "+" + selectedCountryData.dialCode + "" +  selectedCountryPlaceholder.replace('/ |-|(|)/g', '');
+      return selectedCountryPlaceholder;
+    },    
+  });
+  strictValidation(el);
+});
 // END validación de número telefónico
 // BEGIN EMAIL
 function formToJson(a) {
@@ -139,25 +139,25 @@ function message(form) {
 }
 
 // BEGIN Bootstrap Validación
-// let forms = document.getElementsByClassName('needs-validation');
+let forms = document.getElementsByClassName('needs-validation');
 // Loop over them and prevent submission
-// let validation = Array.prototype.filter.call(forms, function(form) {
-//   form.addEventListener('submit', function(e) {
-//     let f = formToJson(form);
-//     if (form.checkValidity() === false) {
-//       e.preventDefault();
-//       e.stopPropagation();
-//       clearPhone(phone);
-//     } else {
-//       e.preventDefault();
-//       clearPhone(phone);
-//       let sheet = dataToSheet(form, scriptURL);
-//       sendEmail(form, 'EnviaréEmailAEste@gmail.com');
-//       message(form)
-//     }
-//     form.classList.add('was-validated');
-//   }, false);
-// });
+let validation = Array.prototype.filter.call(forms, function(form) {
+  form.addEventListener('submit', function(e) {
+    let f = formToJson(form);
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+      clearPhone(phone);
+    } else {
+      e.preventDefault();
+      clearPhone(phone);
+      let sheet = dataToSheet(form, scriptURL);
+      sendEmail(form, 'info@toptechforhealth.com');
+      message(form)
+    }
+    form.classList.add('was-validated');
+  }, false);
+});
 // END Bootstrap Validación
 
 // BEGIN Flickity

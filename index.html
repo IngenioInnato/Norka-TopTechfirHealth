@@ -321,6 +321,72 @@
   </div>
 </div>
   <!-- END S7 -->
+  
+  <!-- END Section 8 -->
+  <section id="S8" class="pb-5 px-lg-3 px-5 container">
+    <div class="row justify-content-center py-5" data-aos="fade-up" data-aos-duration="3000">
+      <div class="col-lg-8">
+        <h2 class="text-center bold mb-5 text-primary"><span id="fecha" class="text-uppercase"></span><br>Aprovecha nuestras promociones</h2>
+      </div>
+      <div class="col-lg-6">
+        <form class="needs-validation" name="toptechforhealth" novalidate>
+          <div class="form-row">
+            <div class="col-lg-12 mb-3">
+              <label for="name">Nombre *</label>
+              <input name="name" type="text" class="form-control form-control-lg" id="name" placeholder="Nombre" value="" maxlength="28"
+                required>
+              <div class="valid-tooltip">
+                ¡Excelente!
+              </div>
+              <div class="invalid-tooltip">
+                Por favor, añade tu nombre.
+              </div>
+            </div>
+            <div class="col-lg-12 mb-3">
+              <label for="mail">Email *</label>
+              <input name="mail" type="email" id="mail" class="form-control form-control-lg" placeholder="Email" maxlength="45"
+                required>
+              <div class="valid-tooltip">
+                ¡Muy bien!
+              </div>
+              <div class="invalid-tooltip">
+                Por favor añade tu correo electrónico correctamente.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-lg-12 mb-3">
+              <label for="phone">Teléfono *</label>
+              <input value="+1787" autocomplete="nope" name="phone" type="tel" id="phone" class="form-control form-control-lg phone" pattern="^\+[1-9]{1}[0-9]{3,14}$"
+                minlength="8" maxlength="30" required>
+              <div class="valid-tooltip">
+                ¡Excelente!
+              </div>
+              <div class="invalid-tooltip phone-invalid">
+                Disculpe, añada un número telefónico válido.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-lg-12 mb-3">
+              <div class="custom-control custom-checkbox mb-1">
+                <input name="agree2" type="checkbox" class="custom-control-input" id="agree2" required checked>
+                <label class="custom-control-label h5" for="agree2"><a href="./politicas"> Acepto políticas de privacidad</a></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <button id="inputSubmit" class="btn btn-primary text-light btn-lg w-100 shadow"
+              type="submit"><h3 class="mb-0 bold text-shadow py-2">¡Aprovecha Ahora!</h3>
+            <small></small></button>
+          </div>
+      </form>
+      </div>
+    </div>
+  </section>
   <script src="./js/main.min.js"></script>
 </body>
 
