@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+  --blue: #1A428A;
+  --indigo: #D094EA;
+  --purple: #D094EA;
+  --pink: #D094EA;
+  --red: #F1BF4C;
+  --orange: #F1BF4C;
+  --yellow: #F1BF4C;
+  --green: #9EEB47;
+  --teal: #9EEB47;
+  --cyan: #D2CEFB;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #505050;
+  --primary: #1A428A;
+  --secondary: #F1BF4C;
+  --success: #9EEB47;
+  --info: #D2CEFB;
+  --warning: #F1BF4C;
+  --danger: #F1BF4C;
+  --light: #f8f9fa;
+  --dark: #505050;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: "Source Sans Pro", Helvetica, Arial, Lucida, sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@-webkit-keyframes to-black{
+  to {background-color: var(--black);}
+}
+@keyframes to-black{
+  to {background-color: var(--black);}
+}
+@-webkit-keyframes to-blue{
+  to {background-color: var(--blue);}
+}
+@keyframes to-blue{
+  to {background-color: var(--blue);}
+}
+@-webkit-keyframes to-orange{
+  to {background-color: var(--yellow);}
+}
+@keyframes to-orange{
+  to {background-color: var(--yellow);}
+}
+@keyframes to-orange{
+  to {background-color: var(--orange);}
+}
+@-webkit-keyframes to-gray{
+  to {background-color: var(--gray);}
+}
+@keyframes to-gray{
+  to {background-color: var(--gray);}
+}
+@-webkit-keyframes to-white{
+  to {background-color: var(--white);}
+}
+@keyframes to-white{
+  to {background-color: var(--white);}
+}
+
+@-webkit-keyframes to-left {
+  from{
+    -webkit-transform: translateX(-25px);
+            transform: translateX(-25px);
+  }   
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }   
+}
+
+@keyframes to-left {
+  from{
+    -webkit-transform: translateX(-25px);
+            transform: translateX(-25px);
+  }   
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }   
+}
+
+@-webkit-keyframes to-right {
+  from{
+    -webkit-transform: translateX(25px);
+            transform: translateX(25px);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes to-right {
+  from{
+    -webkit-transform: translateX(25px);
+            transform: translateX(25px);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes to-top {
+  from{
+    -webkit-transform: translateY(-25px);
+            transform: translateY(-25px);
+  }   
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }   
+}
+
+@keyframes to-top {
+  from{
+    -webkit-transform: translateY(-25px);
+            transform: translateY(-25px);
+  }   
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }   
+}
+
+@-webkit-keyframes to-bottom {
+  from{
+    -webkit-transform: translateY(25px);
+            transform: translateY(25px);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes to-bottom {
+  from{
+    -webkit-transform: translateY(25px);
+            transform: translateY(25px);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.blue-to-orange {
+  background: linear-gradient(45deg, var(--blue), var(--orange));
+  background-size: 400%;
+  background-position: 0%;
+}
+.orange-to-blue {
+  background: linear-gradient(45deg, var(--blue), var(--orange));
+  background-size: 400%;
+  background-position: 100%;
+}
+@keyframes blue-to-orange {
+  to {background-position: 100%;}
+}
+@keyframes orange-to {
+  to {background-position: 0%;}
+}
+
+.orange-to-white {
+  background: linear-gradient(45deg, var(--white), var(--orange));
+  background-size: 400%;
+  background-position: 100%;
+}
+
+
+@keyframes to-bg-position {
+  to {background-position: 100%;}
+}
+  </style>
+</head>
+<body>
+  <div style="height:100vh; display:block;" ></div>
+  <div style="height:100vh; display:block;" class="to-bg-position blue-to-orange"></div>
+  <div style="height:100vh; display:block;" ></div>
+  <div style="height:100vh; display:block;" ></div>
+  <div style="height:100vh; display:block;" class="to-blue"></div>
+  <div style="height:100vh; display:block;" ></div>
+
+<script>
+function to(x){
+  var observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      // if((browser.name != 'safari') && (browser.version > 12))
+      entry.isIntersecting ? entry.target.style.animation = `to-${x} 1s ease forwards`: entry.target.style.animation = 'none';
+    });
+  });
+  document.querySelectorAll(`.to-${x}`).forEach(background => observer.observe(background));
+}
+function toBgPosition(){
+  var observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      // if((browser.name != 'safari') && (browser.version > 12))
+      entry.isIntersecting ? entry.target.style.animation = `to-bg-position 2s ease forwards`: entry.target.style.animation = 'none';
+    });
+  });
+  document.querySelectorAll(`.to-bg-position`).forEach(background => observer.observe(background));
+}
+//Colores
+to('black');
+to('blue');
+to('orange');
+to('gray')
+to('white');
+//Movimientos
+to('left');
+to('right');
+to('top')
+to('bottom');
+
+toBgPosition();
+</script>
+</body>
+</html>

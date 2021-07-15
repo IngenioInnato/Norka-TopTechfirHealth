@@ -109,7 +109,6 @@ a:focus, button:focus, div:focus, input:focus, form:focus {
 // BEGIN Flickyti
 .carousel-cell {
   width: 100%; /* full width */
-  height: 540px;
   /* center images in cells with flexbox */
   display: flex;
   align-items: center;
@@ -134,3 +133,41 @@ a:focus, button:focus, div:focus, input:focus, form:focus {
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
 }
+#banner-header{
+  background: url(../img/air-banner.webp)  no-repeat center / contain, linear-gradient(45deg, transparent,var(--white)); height: 100vh; clip-path:  polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
+  @media (max-width: 576px) {
+    background: url(../img/AirBanner.webp)  no-repeat 67% / cover, linear-gradient(45deg, transparent,var(--white)); height: 100vh; clip-path:  polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
+  }
+  .no-webp {
+    background: url(../img/air-banner.jpg)  no-repeat center / contain, linear-gradient(45deg, transparent,var(--white)); height: 100vh; clip-path:  polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
+    @media (max-width: 576px) {
+      background: url(../img/AirBanner.jpg)  no-repeat 67% / cover, linear-gradient(45deg, transparent,var(--white)); height: 100vh; clip-path:  polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
+    }
+  }
+}
+// BEGIN More Styles
+.gray-to-blue {
+  background: linear-gradient(45deg, var(--gray), var(--primary));
+  clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
+  background-size: 400%;
+  background-position: 0%;
+}
+.white-to-yellow {
+  background: linear-gradient(45deg, var(--white), var(--yellow));
+  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
+  background-size: 400%;
+  background-position: 0%;
+}
+.white-to-blue {
+  background: linear-gradient(45deg, var(--white), var(--blue));
+  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
+  background-size: 400%;
+  background-position: 0%;
+}
+@keyframes to-bg-position {
+  to {background-position: 80%;}
+}
+.letter-spacing-2 {
+  letter-spacing: -2px;
+}
+// END More Styles
